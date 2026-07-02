@@ -1,0 +1,25 @@
+{
+  "gateway": {
+    "name": "Digital Craftsmen",
+    "bind": "lan",
+    "auth": {
+      "mode": "token"
+    }
+  },
+  "agents": {
+    "defaults": {
+      "workspace": "/app/workspace"
+    }
+  },
+  "channels": {
+    "discord": {
+      "token": "${DISCORD_BOT_TOKEN}",
+      "dmPolicy": "open"
+    },
+    "telegram": {
+      "botToken": "${TELEGRAM_BOT_TOKEN}",
+      "dmPolicy": "open"
+    }
+  },
+  "skills": []
+}

@@ -1,0 +1,45 @@
+# ── Never needed in the Docker build context ──────────────────────────────────
+
+# Git internals
+.git
+.gitattributes
+
+# Compiled output (rebuilt inside the container)
+node_modules
+dist/
+.turbo/
+.next/
+
+# Mobile / desktop app source trees — not part of the gateway deployment
+# and very large; exclude to keep build context small.
+apps/
+
+# IDE / OS noise
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.iml
+
+# CI configuration
+.github/
+.circleci/
+.travis.yml
+
+# Local environment overrides (secrets never go into the image)
+.env.local
+.env.*.local
+.env.example
+
+# Replit-specific
+.replit
+.cache/
+.upm/
+
+# ── Everything else is required by the Dockerfile ─────────────────────────────
+# extensions/, packages/, scripts/, src/, docs/, qa/, skills/,
+# pnpm-lock.yaml, .npmrc, patches/, ui/, openclaw.mjs, etc.
+# DO NOT add those here — they are copied by explicit COPY instructions
+# or by the COPY . . step in the build stage.
