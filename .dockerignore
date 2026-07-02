@@ -13,6 +13,15 @@ dist/
 # Mobile / desktop app source trees — not part of the gateway deployment
 # and very large; exclude to keep build context small.
 apps/
+# EXCEPTION: UI build (pnpm ui:build / vite) resolves this JSON at compile time
+# via a relative import in ui/src/ui/tool-display.ts. Include only this file
+# so the build context stays small (all other apps/ code stays excluded).
+!apps/shared/
+!apps/shared/OpenClawKit/
+!apps/shared/OpenClawKit/Sources/
+!apps/shared/OpenClawKit/Sources/OpenClawKit/
+!apps/shared/OpenClawKit/Sources/OpenClawKit/Resources/
+!apps/shared/OpenClawKit/Sources/OpenClawKit/Resources/tool-display.json
 
 # IDE / OS noise
 .vscode/
