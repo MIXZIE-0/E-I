@@ -1965,7 +1965,8 @@
     "android:i18n:check": "node --import tsx scripts/android-app-i18n.ts check",
     "apple:i18n:check": "node --import tsx scripts/apple-app-i18n.ts check",
     "ui:install": "node scripts/ui.js install",
-    "verify": "node scripts/verify.mjs"
+    "verify": "node scripts/verify.mjs",
+    "openclaw:tsdown": "pnpm run build:docker"
   },
   "dependencies": {
     "@agentclientprotocol/sdk": "0.22.1",
