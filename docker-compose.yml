@@ -38,6 +38,7 @@ services:
       CLAUDE_WEB_SESSION_KEY: ${CLAUDE_WEB_SESSION_KEY:-}
       CLAUDE_WEB_COOKIE: ${CLAUDE_WEB_COOKIE:-}
       TZ: ${OPENCLAW_TZ:-UTC}
+      PORT: ${OPENCLAW_GATEWAY_PORT:-18789}
     volumes:
       - "${OPENCLAW_CONFIG_DIR:-${HOME:-/tmp}/.openclaw}:/home/node/.openclaw"
       - "${OPENCLAW_WORKSPACE_DIR:-${HOME:-/tmp}/.openclaw/workspace}:/home/node/.openclaw/workspace"
@@ -61,7 +62,7 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     ports:
-      - "${OPENCLAW_GATEWAY_PORT:-18789}:18789"
+      - "${OPENCLAW_GATEWAY_PORT:-18789}:${PORT:-18789}"
       - "${OPENCLAW_BRIDGE_PORT:-18790}:18790"
       - "${OPENCLAW_MSTEAMS_PORT:-3978}:3978"
     init: true
@@ -72,9 +73,9 @@ services:
         "dist/index.js",
         "gateway",
         "--bind",
-        "${OPENCLAW_GATEWAY_BIND:-lan}",
+        "0.0.0.0",
         "--port",
-        "18789",
+        "${PORT:-18789}",
       ]
     healthcheck:
       test:
@@ -82,7 +83,7 @@ services:
           "CMD",
           "node",
           "-e",
-          "fetch('http://127.0.0.1:18789/healthz').then((r)=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+          "fetch('http://127.0.0.1:${PORT:-18789}/healthz').then((r)=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
         ]
       interval: 30s
       timeout: 5s
