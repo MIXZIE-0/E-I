@@ -1,6 +1,5 @@
 {
   "gateway": {
-    "name": "Digital Craftsmen",
     "mode": "local",
     "bind": "lan",
     "auth": {
@@ -17,6 +16,5 @@
       "token": "${DISCORD_BOT_TOKEN}",
       "dmPolicy": "open"
     }
-  },
-  "skills": []
+  }
 }
