@@ -1,6 +1,7 @@
 {
   "gateway": {
     "name": "Digital Craftsmen",
+    "mode": "local",
     "bind": "lan",
     "auth": {
       "mode": "token"
@@ -14,10 +15,6 @@
   "channels": {
     "discord": {
       "token": "${DISCORD_BOT_TOKEN}",
-      "dmPolicy": "open"
-    },
-    "telegram": {
-      "botToken": "${TELEGRAM_BOT_TOKEN}",
       "dmPolicy": "open"
     }
   },
