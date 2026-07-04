@@ -18,7 +18,9 @@
       "allowFrom": ["*"]
     },
     "telegram": {
-      "botToken": "${TELEGRAM_BOT_TOKEN}"
+      "botToken": "${TELEGRAM_BOT_TOKEN}",
+      "dmPolicy": "allowlist",
+      "allowFrom": ["8511180085"]
     }
   }
 }
