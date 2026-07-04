@@ -8,7 +8,7 @@
   },
   "agents": {
     "defaults": {
-      "workspace": "/app/workspace"
+      "workspace": "/home/runner/workspace/openclaw-workspace"
     }
   },
   "channels": {
