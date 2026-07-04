@@ -1,0 +1,2 @@
+- [OpenClaw build setup](openclaw-build.md) — build requires Node 22+, pnpm 11 via npm, capped heap; dist/ is gitignored and must be rebuilt after container restart.
+- [OpenClaw channel config](openclaw-channel-config.md) — Discord uses `token`, Telegram uses `botToken`; discord needs `allowFrom: ["*"]` when dmPolicy=open.
