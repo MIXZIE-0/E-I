@@ -14,7 +14,8 @@
   "channels": {
     "discord": {
       "token": "${DISCORD_BOT_TOKEN}",
-      "dmPolicy": "open"
+      "dmPolicy": "open",
+      "allowFrom": ["*"]
     },
     "telegram": {
       "botToken": "${TELEGRAM_BOT_TOKEN}"
