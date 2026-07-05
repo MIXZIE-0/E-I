@@ -7,19 +7,19 @@
       "token": "${OPENCLAW_GATEWAY_TOKEN}"
     },
     "controlUi": {
-      "allowedOrigins": ["*"]
+      "allowedOrigins": [
+        "*"
+      ]
     }
   },
   "agents": {
     "defaults": {
       "workspace": "/home/runner/workspace/openclaw-workspace",
       "model": {
-        "primary": "openai/gpt-5.4-mini",
+        "primary": "groq/llama-3.3-70b-versatile",
         "fallbacks": [
-          "openrouter/openai/gpt-4o-mini",
           "anthropic/claude-sonnet-4-6",
-          "google/gemini-2.5-flash",
-          "groq/llama-3.3-70b-versatile"
+          "google/gemini-2.5-flash"
         ]
       }
     }
@@ -28,12 +28,27 @@
     "discord": {
       "token": "${DISCORD_BOT_TOKEN}",
       "dmPolicy": "open",
-      "allowFrom": ["*"]
+      "allowFrom": [
+        "*"
+      ]
     },
     "telegram": {
       "botToken": "${TELEGRAM_BOT_TOKEN}",
       "dmPolicy": "open",
-      "allowFrom": ["*"]
+      "allowFrom": [
+        "*"
+      ]
     }
+  },
+  "plugins": {
+    "entries": {
+      "groq": {
+        "enabled": true
+      }
+    }
+  },
+  "meta": {
+    "lastTouchedVersion": "2026.6.11",
+    "lastTouchedAt": "2026-07-05T03:47:16.588Z"
   }
 }

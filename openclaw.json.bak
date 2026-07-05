@@ -7,9 +7,7 @@
       "token": "${OPENCLAW_GATEWAY_TOKEN}"
     },
     "controlUi": {
-      "allowedOrigins": [
-        "*"
-      ]
+      "allowedOrigins": ["*"]
     }
   },
   "agents": {
@@ -28,27 +26,12 @@
     "discord": {
       "token": "${DISCORD_BOT_TOKEN}",
       "dmPolicy": "open",
-      "allowFrom": [
-        "*"
-      ]
+      "allowFrom": ["*"]
     },
     "telegram": {
       "botToken": "${TELEGRAM_BOT_TOKEN}",
       "dmPolicy": "open",
-      "allowFrom": [
-        "*"
-      ]
+      "allowFrom": ["*"]
     }
-  },
-  "plugins": {
-    "entries": {
-      "groq": {
-        "enabled": true
-      }
-    }
-  },
-  "meta": {
-    "lastTouchedVersion": "2026.6.11",
-    "lastTouchedAt": "2026-07-05T03:47:16.588Z"
   }
 }
