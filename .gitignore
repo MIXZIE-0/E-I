@@ -270,3 +270,7 @@ extensions/diffs-language-pack/assets/viewer-runtime.js
 /.opengrep-out/
 /.crabbox-artifacts
 .comux*
+
+# OpenClaw config auto-backups (local only)
+openclaw.json.bak
+openclaw.json.last-good
