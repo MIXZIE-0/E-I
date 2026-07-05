@@ -6,9 +6,10 @@ description: How to build and run the OpenClaw monorepo on Replit — Node versi
 ## Rules
 
 1. Node.js **22** required (`engines: >=22.19.0`). Node 20 (old default) causes a startup error.
-2. pnpm **11.2.2** required. The nix-provided pnpm 10 hangs on startup because it sees `packageManager: pnpm@11.2.2` and tries to auto-switch. Install via `npm install -g pnpm@11.2.2`.
-3. `corepack enable` fails on NixOS (read-only store). Use npm-installed pnpm directly.
-4. `dist/` is in `.gitignore` — Railway builds from Dockerfile; Replit needs a local build.
+2. The nix-provided pnpm 10 sees `packageManager: pnpm@11.2.2` in package.json and tries to self-upgrade via `pnpm add pnpm@11.2.2 ...`, which SIGABRTs in this sandbox (worker-thread creation fails) and loops forever. Do NOT try to install pnpm 11 — instead add `manage-package-manager-versions=false` to `~/.npmrc` AND the project `.npmrc` (both are needed; pnpm exec spawned from scripts reads project npmrc). This lets nix pnpm 10 run pnpm/tsdown normally.
+3. `corepack enable` fails on NixOS (read-only store). Use nix-provided pnpm directly with the npmrc fix above.
+4. Background/detached shell processes (`nohup ... & disown`) get killed the instant a bash tool call returns in this sandbox — they do NOT survive across tool calls. For any build/command that needs >120s, run it via a temporary Replit workflow (`configureWorkflow`) instead, then poll `getWorkflowStatus` and `removeWorkflow` when done — workflows are supervised independently and do survive.
+5. `dist/` is in `.gitignore` — Railway builds from Dockerfile; Replit needs a local build.
 
 ## Build command (Replit)
 
