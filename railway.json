@@ -4,7 +4,7 @@
     "builder": "dockerfile",
     "dockerfile": "Dockerfile",
     "buildArgs": {
-      "OPENCLAW_EXTENSIONS": "discord,telegram,groq"
+      "OPENCLAW_EXTENSIONS": "discord,telegram,groq,openai,anthropic,openrouter,google"
     }
   },
   "deploy": {
