@@ -60,17 +60,24 @@ OPENCLAW_TSDOWN_MAX_OLD_SPACE_MB=3072 OPENCLAW_RUN_NODE_SKIP_DTS_BUILD=1 pnpm bu
 
 Railway builds from `Dockerfile` (multi-stage, Node 24 + Bun). Config:
 
-- **`railway.json`** — Railway build + deploy settings (active)
-- **`.railway.toml`** — local override (start command variant)
+- **`railway.json`** — Railway build + deploy settings (source of truth)
+- **`.railway.toml`** — kept in sync with railway.json (same start command)
 - **`.railway/config.json`** — OpenClaw channel config read by the container
 
 Railway build args: `OPENCLAW_EXTENSIONS=discord,telegram,groq`
 
-Start command (in `railway.json`):
+Start command (in `railway.json` and `.railway.toml`):
 
 ```
-OPENCLAW_CONFIG_PATH=/app/.railway/config.json OPENCLAW_GATEWAY_PORT=${PORT:-18789} node openclaw.mjs gateway
+OPENCLAW_CONFIG_PATH=/app/.railway/config.json node openclaw.mjs gateway --bind lan --port ${PORT:-18789} --allow-unconfigured
 ```
+
+**Key notes:**
+
+- `--bind lan` maps to `0.0.0.0` internally — required for Railway port-forwarding
+- `--bind 0.0.0.0` is NOT a valid bind mode (accepted: loopback, lan, auto, custom, tailnet)
+- Gateway token is read from `OPENCLAW_GATEWAY_TOKEN` env var (set in Railway service variables)
+- Railway project: `kind-spirit` · service: `E-I` · environment: `production`
 
 ## Key Config Files
 
