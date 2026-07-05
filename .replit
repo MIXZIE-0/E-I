@@ -33,3 +33,8 @@ waitForPort = 8080
 [[ports]]
 localPort = 8080
 externalPort = 80
+
+[userenv]
+
+[userenv.shared]
+OPENCLAW_GATEWAY_TOKEN = "DigitalCraftsmen_Secure_Token_2026i"
