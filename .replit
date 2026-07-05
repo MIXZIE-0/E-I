@@ -1,4 +1,4 @@
-modules = ["swift-5.8", "bash", "nodejs-22"]
+modules = ["nodejs-20", "swift-5.8", "bash"]
 [agent]
 expertMode = true
 stack = "BEST_EFFORT_FALLBACK"
