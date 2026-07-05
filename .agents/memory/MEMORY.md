@@ -1,2 +1,4 @@
 - [OpenClaw build setup](openclaw-build.md) — build requires Node 22+, pnpm 11 via npm, capped heap; dist/ is gitignored and must be rebuilt after container restart.
 - [OpenClaw channel config](openclaw-channel-config.md) — Discord uses `token`, Telegram uses `botToken`; discord needs `allowFrom: ["*"]` when dmPolicy=open.
+- [OpenClaw bind modes](openclaw-bind-modes.md) — valid CLI bind modes: loopback, lan, auto, custom, tailnet. `--bind 0.0.0.0` is rejected at startup. `lan` maps to 0.0.0.0 internally.
+- [OpenClaw groq plugin](openclaw-groq-plugin.md) — groq not in default dist build; install via `plugins install @openclaw/groq-provider` (uses bundled source). Railway build args already include groq via OPENCLAW_EXTENSIONS.
