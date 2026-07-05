@@ -4,7 +4,7 @@
     "bind": "lan",
     "auth": {
       "mode": "token",
-      "token": "DigitalCraftsmen_Secure_Token_2026i"
+      "token": "${OPENCLAW_GATEWAY_TOKEN}"
     },
     "controlUi": {
       "allowedOrigins": ["*"]

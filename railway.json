@@ -8,7 +8,7 @@
     }
   },
   "deploy": {
-    "startCommand": "sh -c 'OPENCLAW_CONFIG_PATH=/app/.railway/config.json node openclaw.mjs gateway --bind 0.0.0.0 --port ${PORT:-18789} --allow-unconfigured'",
+    "startCommand": "sh -c 'OPENCLAW_CONFIG_PATH=/app/.railway/config.json node openclaw.mjs gateway --bind lan --port ${PORT:-18789} --allow-unconfigured'",
     "restartPolicyType": "ON_FAILURE",
     "restartPolicyMaxRetries": 5,
     "restartPolicyWindowMs": 60000,
